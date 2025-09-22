@@ -1,0 +1,36 @@
+export const RECIPE = {
+    title: "Cookie Monster Cookies",
+    imgSrc: require('../assets/cookie.jpg'),
+    description:'Big soft and chewy cookie monster cookies with oreo cookie in the center',
+    ingredients: [
+    '1/2 cup unsalted butter', 
+    '1/2 cup granulated white sugar',
+    '1/4 cup light brown sugar',
+    '1 Egg',
+    '1 tsp vanilla extract',
+    'Blue gel food coloring',
+    '1 and 3/4 cup All purpose flour',
+    'A pinch of salt',
+    '1 tsp Baking powder',
+    '1/2 tsp baking soda',
+    '1/4 cup dark chocolate chips',
+    '1/4 cup white chocolate chips',
+    '1/4 cup crushed mini cookies',
+    '3 oreo cookies - chopped',
+    '12 oreo cookies - whole'
+
+    ],
+    instructions: [
+        'Beat softened butter with white and brown sugar for 2 minutes until creamy',
+        'Add: egg, vanilla extract, blue gel food coloring',
+        'Mix with electric mixer for 1 minute',
+        'Sift flour, salt, baking poweder, baking soda together',
+        'Fold in the sifted dry ingredients',
+        'Add oreo pieces, mini cookie bits, chocolate chips and mix',
+        'Cover dough with plastic rep and let rest for 30 mins - 1 hour',
+        'Shape dough into cookies and place on lined baking sheet',
+        'Preheat oven to 350 Farenheit and bake for 12-15 minutes',
+        'Allow cookies to cool',
+        'Add: flour, baking powder, sugar, salt',
+    ],
+}
