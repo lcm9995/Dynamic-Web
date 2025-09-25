@@ -48,6 +48,7 @@ const Accordion = (props) => {
 
   // JSX returned and rendered to the user
   return (
+    <>
     <div key={DUMMYDATA.id}>
       <div
         onClick={handleClick}
@@ -65,6 +66,24 @@ const Accordion = (props) => {
         isExpanded && <div className="border-b p-5">{DUMMYDATA.content}</div>
       }
     </div>
+    <div key={DUMMYDATA.id}>
+      <div
+        onClick={handleClick}
+        className="flex justify-between items-center p-3 bg-gray-100 border-b cursor-pointer"
+      >
+        {DUMMYDATA.label}
+        {icon}
+      </div>
+      {
+        /* conditional rendering
+          The content div will only render when isExpanded is true
+          if isExpanded is false, dont render anything
+        */
+
+        isExpanded && <div className="border-b p-5">{DUMMYDATA.content}</div>
+      }
+    </div>
+    </>
   )
 }
 
