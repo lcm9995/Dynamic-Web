@@ -21,15 +21,21 @@ const DUMMYDATA = {
 
 const Accordion = (props) => {
   // pull out our props with destructuring
-  // const {items} = props
-  // state
-  const [isExpanded, setIsExpanded] = useState(true)
+  const {items} = props
+  // state, needs to update to accomodate multiple items
+  const [expandedIndex, setExpandedIndex] = useState(1)
 
   // event handling function
-  const handleClick = () => {
-    setIsExpanded(!isExpanded)
-    // NEVER EVER EVER IN A MILLION YEARS EVER
-    // isExpanded = !isExpanded
+  const handleClick = (nextIndex) => {
+    setExpandedIndex((currentExpandedIndex) => {
+      // check if the item clicked is already set as the open one in our state
+      // we need to set an index that will never match an index in our array
+      if (currentExpandedIndex === nextIndex) {
+        return -1
+      } else {
+        return nextIndex
+      }
+    })
   }
 
   // YAY your first ternary (shorthand if/else)
@@ -40,51 +46,39 @@ const Accordion = (props) => {
    2- what to return if 1 is true
    3- what to return if 1 is false
   */
-  const icon = (
-    <span className="text-2xl">
-      {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
-    </span>
-  )
+
+  const renderedItems = items.map((item, index) => {
+    const isExpanded = index === expandedIndex
+
+    // this will also have to update because it references out state
+    const icon = (
+      <span className="text-2xl">
+        {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+      </span>
+    )
+    return (
+      <div key={item.id}>
+        <div
+          onClick={() => handleClick(index)}
+          className="flex justify-between items-center p-3 bg-gray-100 border-b cursor-pointer"
+        >
+          {item.label}
+          {icon}
+        </div>
+        {
+          /* conditional rendering
+          The content div will only render when isExpanded is true
+          if isExpanded is false, dont render anything
+        */
+
+          isExpanded && <div className="border-b p-5">{item.content}</div>
+        }
+      </div>
+    )
+  })
 
   // JSX returned and rendered to the user
-  return (
-    <>
-    <div key={DUMMYDATA.id}>
-      <div
-        onClick={handleClick}
-        className="flex justify-between items-center p-3 bg-gray-100 border-b cursor-pointer"
-      >
-        {DUMMYDATA.label}
-        {icon}
-      </div>
-      {
-        /* conditional rendering
-          The content div will only render when isExpanded is true
-          if isExpanded is false, dont render anything
-        */
-
-        isExpanded && <div className="border-b p-5">{DUMMYDATA.content}</div>
-      }
-    </div>
-    <div key={DUMMYDATA.id}>
-      <div
-        onClick={handleClick}
-        className="flex justify-between items-center p-3 bg-gray-100 border-b cursor-pointer"
-      >
-        {DUMMYDATA.label}
-        {icon}
-      </div>
-      {
-        /* conditional rendering
-          The content div will only render when isExpanded is true
-          if isExpanded is false, dont render anything
-        */
-
-        isExpanded && <div className="border-b p-5">{DUMMYDATA.content}</div>
-      }
-    </div>
-    </>
-  )
+  return <div>{renderedItems}</div>
 }
 
 export default Accordion
