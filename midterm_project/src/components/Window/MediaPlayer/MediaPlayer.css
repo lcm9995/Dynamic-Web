@@ -1,0 +1,25 @@
+.media-player {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background: #c0c0c0;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  font-family: "Tahoma", "Verdana", sans-serif;
+  color: #000;
+}
+
+.media-player-title {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 6px;
+  background: #e0e0e0;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  user-select: none;
+}

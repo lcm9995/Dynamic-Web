@@ -1,0 +1,14 @@
+.window-message {
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 8px 4px;
+    font-family: "Tahoma", "Verdana", sans-serif;
+    color: #000;
+}
+.window-message-text {
+    color: #000;
+    width: 100%;
+    white-space: normal;   
+}

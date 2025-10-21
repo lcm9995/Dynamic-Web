@@ -1,0 +1,17 @@
+.window-top-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
+    background-color: #c0c0c0; 
+    border: 2px solid #808080; 
+    color: black;
+    font-family: "Tahoma", "Verdana", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+    cursor: default;
+    user-select: none;
+}

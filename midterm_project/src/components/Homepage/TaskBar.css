@@ -1,0 +1,26 @@
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    padding: 0 8px;
+    box-sizing: border-box;
+    font-family: "Tahoma", "Verdana", sans-serif;
+}
+.taskbar-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.taskbar-text {
+  font-size: 13px;
+  color: #000000;
+}

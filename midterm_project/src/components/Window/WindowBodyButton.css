@@ -1,0 +1,26 @@
+.window-content-button {
+    display: inline-block;
+    padding: 4px 16px;
+    background-color: #c0c0c0;
+    border-left: 2px solid #ffffff;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-family: "Tahoma", "Verdana", sans-serif;
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;     
+    user-select: none;
+    text-align: center;
+}
+
+.window-content-button:hover {
+    filter: brightness(0.95);
+}
+
+.window-content-button:active {
+    border-left: 2px solid #808080;
+    border-top: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}

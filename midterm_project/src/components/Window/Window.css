@@ -1,0 +1,7 @@
+.window {
+    width: 420px;
+    border: 2px solid #808080;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #c0c0c0;
+}
