@@ -1,20 +1,18 @@
-import {useState, useEffect} from 'react'
+import {createContext, useState, useCallback} from 'react'
 import axios from 'axios'
-import TodoCreate from './components/TodoCreate'
-import TodoList from './components/TodoList'
+// this is super important and the value you share with every consumer component
+// thats why it is exported as default
+const TodosContext = createContext()
 
-function App() {
+const Provider = ({children}) => {
   const [todos, setTodos] = useState([])
 
-  const fetchTodos = async () => {
+  const fetchTodos = useCallback(async () => {
     const response = await axios.get('http://localhost:3001/todos')
     setTodos(response.data)
-  }
-  // NEVER EVER NO NO
-  // fetchTodos()
-  useEffect(() => {
-    fetchTodos()
   }, [])
+  // this is super clear but not how you will see it in production
+  // const stableFetchTodos = useCallback(fetchTodos, [])
 
   const createTodo = async (title) => {
     const response = await axios.post('http://localhost:3001/todos', {
@@ -52,12 +50,20 @@ function App() {
     setTodos(updatedTodos)
   }
 
+  const valuesToShare = {
+    todos,
+    fetchTodos,
+    createTodo,
+    deleteTodoById,
+    editTodoById,
+  }
+
   return (
-    <div>
-      <TodoCreate onCreate={createTodo} />
-      <TodoList todos={todos} onDelete={deleteTodoById} onEdit={editTodoById} />
-    </div>
+    <TodosContext.Provider value={valuesToShare}>
+      {children}
+    </TodosContext.Provider>
   )
 }
 
-export default App
+export {Provider}
+export default TodosContext
