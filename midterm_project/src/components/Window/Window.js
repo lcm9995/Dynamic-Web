@@ -9,7 +9,7 @@ import Draggable from 'react-draggable';
 import FileBrowserWindow from "./FileBrowser/FileBrowserWindow";
 
 const Window = (props) => {
-    const {title="New Window", type, messageText, mediaSrc, mediaType="video", browserType="", browserItems=[], onOpen, onClose} = props;
+    const {title="New Window",  type, messageText, mediaSrc, mediaType="video", browserType="", browserItems=[], onOpen, onClose} = props;
     //const [isVisible, setIsVisable] = useState(true);
     const nodeRef = useRef(null); // from https://www.windmill.dev/blog/react-draggable-component
     const handleClose = () => {
@@ -22,7 +22,8 @@ const Window = (props) => {
         displayTitle = "Media Player";
         mediaTitle = title;
     }else if (type==="image"){
-        displayTitle= "Image Viewer"
+        displayTitle= "Image Viewer";
+        mediaTitle = title;
     } else if (type == "browser"){
         displayTitle = browserType === "images" ? "Gallery" : "Video Library";
     }else{
