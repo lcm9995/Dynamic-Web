@@ -1,0 +1,81 @@
+.bulletin-board {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background-image: url('../assets/corkboard.jpg');
+  background-size: cover;   
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 24px;
+  position: relative;
+  z-index: 0;
+}
+.bb-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 20px;
+}
+
+.bb-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bulletin-container {
+  position: relative;
+  background-color: #f0e7d8;  
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.board-area {
+  position: absolute;
+  inset: 0;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+.board-row {
+  display: flex;
+  gap: 25px;
+}
+
+.panel {
+  background-color: #fffef7; 
+  border: 2px solid #e6d9b5;
+  padding: 16px;
+  border-radius: 6px;
+  width: 300px;
+  box-shadow: 2px 3px 6px rgba(0,0,0,0.15);
+  position: relative;
+}
+.board-row .panel:nth-child(1) {
+  transform: rotate(-1.2deg);
+}
+
+.board-row .panel:nth-child(2) {
+  transform: rotate(1deg);
+}
+.add-note-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background: #ffd86b;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+  transition: 0.12s;
+  z-index: 10003;
+}
+
+.add-note-btn:hover {
+  background: #ffcf4e;
+}
+
+
+.color-swatch:focus {
+  outline: 2px solid #333;
+}
