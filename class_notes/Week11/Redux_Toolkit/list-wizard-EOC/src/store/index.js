@@ -27,6 +27,15 @@ const store = configureStore({
   },
 })
 
+const startingState = store.getState()
+console.log(JSON.stringify(startingState))
+
+store.dispatch({type: 'song/addSong', payload: 'Where is my mind?'})
+console.log(JSON.stringify(store.getState()))
+
+console.log(songSlice.actions.addSong('..'))
+
+
 // make sure you export all the things you need
 // the compiled application state to access values elsewhere
 export {store}
